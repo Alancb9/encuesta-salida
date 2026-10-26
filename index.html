@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff5c7a">
+  <meta name="description" content="Una encuesta de satisfacción divertida sobre nuestra salida.">
+  <title>Encuesta oficial de nuestra salida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=DM+Mono:wght@400;500&family=DM+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="doodle doodle-a" aria-hidden="true">✦</div>
+  <div class="doodle doodle-b" aria-hidden="true">♥</div>
+  <div class="doodle doodle-c" aria-hidden="true">☻</div>
+
+  <main class="shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>▶</span> PLAYER 2 · TU TURNO</p>
+        <h1>SALIDA<br><em>REVIEW</em></h1>
+        <p class="intro">Nueve niveles, cero respuestas incorrectas. Completa la partida y danos tu veredicto más honesto.</p>
+        <button class="start-survey" id="startSurvey" type="button">Comenzar encuesta <span>▶</span></button>
+      </div>
+      <div class="mascot-wrap" aria-hidden="true">
+        <div class="pixel-pal">
+          <div class="antenna"><i></i></div>
+          <div class="pixel-head"><i class="eye left"></i><i class="eye right"></i><span class="pixel-mouth"></span></div>
+          <div class="pixel-body"><span>?</span></div>
+          <div class="clipboard"><b>PLAN</b><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="survey-card" id="surveyCard">
+      <div class="progress-row">
+        <p><strong id="stepLabel">Nivel 1</strong> / <span id="totalSteps">9</span></p>
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <p class="progress-pct" id="progressPct">14%</p>
+      </div>
+
+      <form id="dateSurvey">
+        <fieldset class="question active" data-step="1">
+          <legend><span class="number">01</span>En general, ¿qué tal te pareció la salida?</legend>
+          <div class="stars" role="radiogroup" aria-label="Calificación general">
+            <input type="radio" id="star5" name="stars" value="5" required><label for="star5" title="5 estrellas">★</label>
+            <input type="radio" id="star4" name="stars" value="4"><label for="star4" title="4 estrellas">★</label>
+            <input type="radio" id="star3" name="stars" value="3"><label for="star3" title="3 estrellas">★</label>
+            <input type="radio" id="star2" name="stars" value="2"><label for="star2" title="2 estrellas">★</label>
+            <input type="radio" id="star1" name="stars" value="1"><label for="star1" title="1 estrella">★</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question" data-step="2">
+          <legend><span class="number">02</span>¿Cómo se sintió la conversación?</legend>
+          <div class="option-grid two">
+            <label class="option"><input type="radio" name="chat" value="flow" required><span class="emoji">🌊</span><b>Fluyendo sabroso</b><small>Cero silencios raros</small></label>
+            <label class="option"><input type="radio" name="chat" value="spark"><span class="emoji">⚡</span><b>Con mucha chispa</b><small>Se pasó volando</small></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question" data-step="3">
+          <legend><span class="number">03</span>Después de la salida, ¿cuánto aumentó tu interés en él?</legend>
+          <div class="interest-meter">
+            <div class="meter-readout"><span id="interestFace">😊</span><strong><b id="interestValue">50</b>%</strong></div>
+            <input type="range" name="interest" id="interestRange" min="0" max="100" value="50" step="1" aria-label="Aumento de interés">
+            <div class="range-labels"><span>0 · Igual que antes</span><span>100 · Muchísimo más</span></div>
+          </div>
+          <p class="meter-message" id="interestMessage">Hay curiosidad… esto se está poniendo interesante.</p>
+        </fieldset>
+
+        <fieldset class="question" data-step="4">
+          <legend><span class="number">04</span>¿Debo reírme más bajo jajajaja o sigo siendo comediante?</legend>
+          <div class="option-grid three chemistry">
+            <label class="option"><input type="radio" name="laugh" value="lower" required><span class="emoji">🤫</span><b>Un poquito más bajo</b><small>Los decibeles cuentan</small></label>
+            <label class="option"><input type="radio" name="laugh" value="perfect"><span class="emoji">😂</span><b>Así está perfecta</b><small>La risa se contagia</small></label>
+            <label class="option"><input type="radio" name="laugh" value="comedian"><span class="emoji">🎤</span><b>Sigue siendo comediante</b><small>El show debe continuar</small></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question" data-step="5">
+          <legend><span class="number">05</span>¿Cómo te sentiste estando con él?</legend>
+          <div class="option-grid two">
+            <label class="option"><input type="radio" name="comfort" value="myself" required><span class="emoji">😌</span><b>Muy yo misma</b><small>Cómoda y tranquila</small></label>
+            <label class="option"><input type="radio" name="comfort" value="reserved"><span class="emoji">🐢</span><b>Algo reservada</b><small>Necesito más tiempo</small></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question" data-step="6">
+          <legend><span class="number">06</span>Sé sincera: ¿me vi ridículo comiendo con palillos?</legend>
+          <div class="option-grid four chopstick-answers">
+            <label class="option"><input type="radio" name="chopsticks" value="cute" required><span class="emoji">😌</span><b>Para nada</b><small>Todo bajo control</small></label>
+            <label class="option"><input type="radio" name="chopsticks" value="charming"><span class="emoji">😅</span><b>Un poquito</b><small>Pero tuvo encanto</small></label>
+            <label class="option"><input type="radio" name="chopsticks" value="tutorial"><span class="emoji">🥢</span><b>Sí, bastante</b><small>Necesitas tutorial</small></label>
+            <label class="option"><input type="radio" name="chopsticks" value="mystery"><span class="emoji">🙈</span><b>No estaba mirando</b><small>Respuesta diplomática</small></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question opinion-question" data-step="7">
+          <legend><span class="number">07</span>Dedícale unas palabras al chico</legend>
+          <div class="privacy-note"><span>😏</span><div><b>Será anónimo… guiño, guiño jajaja.</b><small>El receptor promete no decirte nada al respecto, así que responde sin miedo. Al finalizar se abrirá el correo listo para enviar.</small></div></div>
+          <label class="text-box opinion-box"><textarea name="opinion" rows="5" maxlength="100" required placeholder="Dile lo que quieras en máximo 100 caracteres…"></textarea><span><b id="opinionCount">0</b>/100 · máximo</span></label>
+          <p class="no-short">Puedes escribir algo corto o utilizar los 100 caracteres :v</p>
+        </fieldset>
+
+        <fieldset class="question opinion-question" data-step="8">
+          <legend><span class="number">08</span>¿Qué te pareció la ronda de preguntas?</legend>
+          <div class="privacy-note"><span>🎮</span><div><b>Evaluemos la evaluación</b><small>Cuéntame cuál pregunta te pareció más interesante y por qué.</small></div></div>
+          <label class="text-box opinion-box"><textarea name="questionRound" rows="5" maxlength="300" required placeholder="La pregunta que más me llamó la atención fue…"></textarea><span><b id="questionRoundCount">0</b>/300 · máximo</span></label>
+        </fieldset>
+
+        <fieldset class="question opinion-question apology-question" data-step="9">
+          <legend><span class="number">09</span>Un último mensaje antes del veredicto</legend>
+          <div class="apology-note"><span>🫂</span><p>Discúlpame. Me moría por abrazarte y darte un beso en la frente, pero no pude. Perdóname por ser cobarde.</p></div>
+          <p class="social-pressure">Ahora déjame un mensajito… pero que no sea solamente “no te preocupes”. ¡Presión social! jajajajaja</p>
+          <label class="text-box opinion-box"><textarea name="apologyReply" rows="5" maxlength="300" required placeholder="Tu mensajito para el chico cobarde…"></textarea><span><b id="apologyReplyCount">0</b>/300 · máximo</span></label>
+        </fieldset>
+
+        <p class="form-error" id="formError" role="alert"></p>
+        <div class="form-actions">
+          <button class="back" type="button" id="backBtn">← Atrás</button>
+          <button class="next" type="button" id="nextBtn">Siguiente <span>→</span></button>
+          <button class="submit" type="submit" id="submitBtn">Enviar veredicto por correo <span>✉</span></button>
+        </div>
+      </form>
+    </section>
+
+    <section class="result-card" id="resultCard" aria-live="polite">
+      <div class="email-success">✓ ¡Respuestas enviadas con éxito!</div>
+      <button type="button" id="restartBtn">Regresar al inicio para volver a enviar ↻</button>
+    </section>
+
+    <footer><span>Hecho con</span> ♥ <span>y una cantidad razonable de nervios.</span></footer>
+  </main>
+  <audio id="backgroundMusic" src="assets/rude.mp3" loop preload="metadata"></audio>
+  <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" aria-label="Reproducir música de fondo">♫ Música: lista</button>
+  <script src="script.js"></script>
+</body>
+</html>
