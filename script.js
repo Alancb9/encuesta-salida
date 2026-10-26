@@ -181,7 +181,7 @@ document.querySelector('#restartBtn').addEventListener('click', () => {
   });
   paintInterest();
   resultCard.classList.remove('show');
-  surveyCard.style.display = 'block';
+  surveyCard.style.removeProperty('display');
   document.body.classList.remove('survey-started');
   paintStep();
   window.scrollTo({ top: 0, behavior: 'smooth' });
